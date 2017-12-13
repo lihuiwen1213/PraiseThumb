@@ -9,6 +9,7 @@ const webpack = require('webpack');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: {
         index: [
@@ -68,6 +69,22 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
             filename: 'public/scripts/common/vendor-[hash].min.js'
+        }),
+        new HtmlWebpackPlugin({ // Also generate a test.html 
+            filename: './views/layout.html',
+            template: 'src/widget/layout.html',
+            inject: false
+        }),
+         new HtmlWebpackPlugin({ // Also generate a test.html 
+            filename: './views/index.html',
+            template: 'src/views/index.js',
+            inject: false,
+            chunks: ['vendor','index','tags'],
+        }),
+         new HtmlWebpackPlugin({ // Also generate a test.html 
+            filename: './widget/index.html',
+            template: 'src/widget/index.html',
+            inject: false,
         })
     ]
 }

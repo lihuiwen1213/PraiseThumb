@@ -6,7 +6,7 @@ class PraiseButton {
 
     //添加点击事件
     clickAction() {
-        axios.get('/index/update')
+        axios.get('/index/update',{headers: {'lihuiwen': 'lihuiwen'}})
             .then(function(response) {
                 console.log(response);
             })
