@@ -11,7 +11,8 @@ module.exports = {
             path.join(__dirname, '../src/public/scripts/indexadd.js')
         ],
         tags: [
-            path.join(__dirname, '../src/public/scripts/tags.es')
+            path.join(__dirname, '../src/public/scripts/tags.es'),
+            path.join(__dirname, '../src/public/scripts/star.es')
         ]
     },
     output: {
@@ -68,6 +69,17 @@ module.exports = {
             template: 'src/widget/index.html',
             inject: false,
         }),
+         new HtmlWebpackPlugin({ // Also generate a test.html 
+            filename: './views/index.html',
+            template: 'src/views/star.js',
+            inject: false,
+            chunks: ['vendor','index','tags'],
+        }),
+         new HtmlWebpackPlugin({ // Also generate a test.html 
+            filename: './widget/index.html',
+            template: 'src/widget/star.html',
+            inject: false,
+        }),
          new Manifest({
                  cache: [
                    './public/css/vendor-[hash:5].css', 
@@ -80,7 +92,8 @@ module.exports = {
                  filename:'cache.manifest', 
                  // 注意*星号前面用空格隔开
                  network: [
-                    '*'
+                    'http://cdn.bootcss.com/ *',
+                    'http://localhost:3000/ *'
                  ],
                  // manifest 文件中添加注释 
                  headcomment: "lihuiwen v 1.2", 

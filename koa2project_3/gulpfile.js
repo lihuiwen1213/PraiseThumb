@@ -1,7 +1,6 @@
 // https://github.com/babel/gulp-babel
 const gulp = require('gulp');
 const babel = require('gulp-babel');
-const manifest = require('gulp-manifest');
 
 gulp.task('default',['praise'],()=>{
 	gulp.watch(['src/**/*.es'],['praise'])
@@ -17,15 +16,3 @@ gulp.task('praise', () =>
     }))
     .pipe(gulp.dest('./build'))
 );
-
-gulp.task('manifest', function(){
-  gulp.src(['build/public/**/*'], { base: './build' })
-    .pipe(manifest({
-      hash: true,
-      preferOnline: true,
-      network: ['*'],
-      filename: 'app.manifest',
-      exclude: 'public/app.manifest',
-     }))
-    .pipe(gulp.dest('build/public'));
-});

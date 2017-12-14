@@ -8,18 +8,7 @@ module.exports=function (templateParams) {
               "{% endblock %}"+
               "{% block content %}{% include '../widget/index.html' %}{% endblock %}"+
               "{% block script %}"+
-              "<script>"+
-              "(function(){"
-              "var scriptsshow = ["+webAssetsHelp.scriptsshow+"];"+
-              "for(let i = 0; i < scriptsshow.length; i++){"+
-              "let a = scriptsshow[i];"+
-              "if(localStorage.getItem(a)){"+
-              "$('<scr'+'ipt>'+localStorage.getItem(a)+'</scr'+‘ipt>’).attr(}{type:'text/javascript'})"+
-              "}"+
-              "}"+
-              "})()"
-              "</script>"+
-              // webAssetsHelp.scripts+
+              webAssetsHelp.scripts+
               "{% endblock %}";
 
               return _html;

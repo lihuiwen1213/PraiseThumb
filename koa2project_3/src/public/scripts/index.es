@@ -21,4 +21,9 @@ class Thumb extends PraiseButton {
         super(num, element);
     }
 }
-export default PraiseButton
+class Star extends PraiseButton {
+    constructor(num, element) {
+        super(num, element);
+    }
+}
+ module.exports =  {PraiseButton, Thumb, Star}

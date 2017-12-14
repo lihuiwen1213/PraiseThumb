@@ -1,6 +1,6 @@
-import Thumb from './index.es'
-const thumb = new Thumb();
-xtag.register('x-praise', {
+import Star from './index.es'
+const star = new Star();
+xtag.register('x-star', {
   content: ' <div class="hand" id="hand">'+
           ' <div class="finger"></div>'+
           ' <div class="thumb" id="thumb"></div>'+
@@ -9,7 +9,7 @@ xtag.register('x-praise', {
   methods: {
     praise: function(){
       let _this = this;
-      thumb.clickAction();
+      star.clickAction();
       let animation = _this.querySelector("#animation");
       animation.className = "num";
       setTimeout(function(){

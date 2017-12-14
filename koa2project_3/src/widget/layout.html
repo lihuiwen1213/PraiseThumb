@@ -5,17 +5,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="x-dns-prefetch-control" content="on">
     <title>{% block title %}{% endblock %}</title>
-    <link rel="dns-prefetch" href="https://cdn.bootcss.com/">
+    <link rel="dns-prefetch" href="http://cdn.bootcss.com/">
     {% block head %}
-    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/axios/0.17.1/axios.min.js"></script>
-    <script src="https://cdn.bootcss.com/x-tag/1.5.11/x-tag-core.js"></script>
+    <script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/axios/0.17.1/axios.min.js"></script>
+    <script src="http://cdn.bootcss.com/x-tag/1.5.11/x-tag-core.js"></script>
+    <script src="http://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
     {% endblock %}
      {% block styles %}{% endblock %}
 </head>
 
 <body>
-    {% block content %}{% endblock %}
+    <a href="/index/star">跳转到星星</a>
+    <a href="/index/praise">跳转到大拇指</a>
+    <div id="changeContent"> {% block content %}{% endblock %}</div>
+    <script>
+        $(document).pjax('a','#changeContent')
+    </script>
 </body>
 {% block script %}{% endblock %}
 
