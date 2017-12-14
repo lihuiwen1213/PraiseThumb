@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Manifest = require('webpack-manifest');
 module.exports = {
     entry: {
         index: [
@@ -66,6 +67,24 @@ module.exports = {
             filename: './widget/index.html',
             template: 'src/widget/index.html',
             inject: false,
-        })
+        }),
+         new Manifest({
+                 cache: [
+                   './public/css/vendor-[hash:5].css', 
+                   './public/scripts/common/vendor-[hash].min.js', 
+                   './public/scripts/index-[hash:5].js', 
+                   './public/scripts/tags-[hash:5].js', 
+                 ],
+                 timestamp: true,
+                 // 生成的文件名字，选填 
+                 filename:'cache.manifest', 
+                 // 注意*星号前面用空格隔开
+                 network: [
+                    '*'
+                 ],
+                 // manifest 文件中添加注释 
+                 headcomment: "lihuiwen v 1.2", 
+                 master: ['./views/layout.html']
+             })
     ]
 }
