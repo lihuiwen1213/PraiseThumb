@@ -14,7 +14,7 @@ module.exports = function(templateParams, cssList) {
     var _scriptsshow = [];
     for (var i = 0; i < _regChunk.length; i++) {
         _scripts += "<script type='text/javascript'  src='" + _files.chunks[_regChunk[i]]['entry'] + "'></script>";
-        _scriptsshow.push("'" + _files.chunks[_regChunk[i]] + "'")
+        _scriptsshow.push("'" + _files.chunks[_regChunk[i]]['entry'] + "'");
     }
     for (var k = 0; k < _regCss.length; k++) {
         var _cssitem = _regCss[k],

@@ -1,12 +1,12 @@
 import css from '../css/index.css'
 class PraiseButton {
-    constructor(num, element) {
+    constructor() {
 
     }
 
     //添加点击事件
     clickAction() {
-        axios.get('/index/update',{headers: {'lihuiwen': 'lihuiwen'}})
+        axios.get('/index/update')
             .then(function(response) {
                 console.log(response);
             })
@@ -17,13 +17,13 @@ class PraiseButton {
 }
 
 class Thumb extends PraiseButton {
-    constructor(num, element) {
-        super(num, element);
+    constructor() {
+        super();
     }
 }
 class Star extends PraiseButton {
-    constructor(num, element) {
-        super(num, element);
+    constructor() {
+        super();
     }
 }
- module.exports =  {PraiseButton, Thumb, Star}
+ export {PraiseButton, Thumb, Star}

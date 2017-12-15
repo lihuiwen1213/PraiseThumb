@@ -17,7 +17,7 @@ const indexController = {
 		return async(ctx, next) => {
 			if(ctx.request.header['x-pjax']){
 				ctx.body = "<x-star></x-star>";
-			}else{ 
+			}else{
 				ctx.body = await ctx.render('star.html',{
 					title: '星星点赞'
 				})
@@ -33,6 +33,11 @@ const indexController = {
 					title: '大拇指'
 				})
 			}
+		}
+	},
+	advertisement(){
+		return async(ctx, next) => {
+			ctx.body = '<div style="height: 150px;background: orange;">大幅广告</div>';
 		}
 	}
 }

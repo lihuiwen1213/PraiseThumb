@@ -7,9 +7,11 @@
     <title>{% block title %}{% endblock %}</title>
     <link rel="dns-prefetch" href="http://cdn.bootcss.com/">
     {% block head %}
+    <script src="http://cdn.bootcss.com/lazyload/2.0.3/lazyload-min.js"></script>
     <script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/axios/0.17.1/axios.min.js"></script>
     <script src="http://cdn.bootcss.com/x-tag/1.5.11/x-tag-core.js"></script>
+    <script src="http://cdn.bootcss.com/localforage/1.5.5/localforage.min.js"></script>
     <script src="http://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
     {% endblock %}
      {% block styles %}{% endblock %}
@@ -20,7 +22,20 @@
     <a href="/index/praise">跳转到大拇指</a>
     <div id="changeContent"> {% block content %}{% endblock %}</div>
     <script>
-        $(document).pjax('a','#changeContent')
+        $(document).pjax('a','#changeContent');
+        localforage.getItem('advertisement', function(err, value){
+            if(value == null){
+                $.ajax({
+                    url: '/index/dev',
+                    success: function(data){
+                        localforage.setItem('advertisement',data);
+                        $("body").prepend(data);
+                    }
+                })
+            }else{
+                $("body").prepend(value)
+            }
+        })
     </script>
 </body>
 {% block script %}{% endblock %}

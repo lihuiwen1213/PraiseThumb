@@ -1,11 +1,8 @@
-import Star from './index.es'
+import {Star} from './index.es'
 const star = new Star();
 xtag.register('x-star', {
-  content: ' <div class="hand" id="hand">'+
-          ' <div class="finger"></div>'+
-          ' <div class="thumb" id="thumb"></div>'+
-       '</div>'+
-       ' <div id="animation" class="animation">+1</div>',
+  content: "<div class='star' id='star' ></div>" +
+    " <span class='hide' id='animation'>+1</span>",
   methods: {
     praise: function(){
       let _this = this;
@@ -20,7 +17,7 @@ xtag.register('x-star', {
   events: {
     click: function(e){
       let _this = this;
-      if(e.target.id == "hand"){
+      if(e.target.id == "star"){
         let t = "";
         if(t){
           clearTimeout(t);

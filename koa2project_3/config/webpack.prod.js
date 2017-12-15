@@ -22,6 +22,7 @@ module.exports = {
     },
     output: {
         filename: 'public/scripts/[name]-[hash:5].js',
+        // publicPath: 'http://192.168.7.117:3000/',
         path: path.join(__dirname, '../build/')
     },
     module: {

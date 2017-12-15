@@ -6,7 +6,7 @@ module.exports=function (templateParams) {
               "{% block styles %}"+
               webAssetsHelp.styles+
               "{% endblock %}"+
-              "{% block content %}{% include '../widget/index.html' %}{% endblock %}"+
+              "{% block content %}{% include '../widget/star.html' %}{% endblock %}"+
               "{% block script %}"+
               webAssetsHelp.scripts+
               "{% endblock %}";

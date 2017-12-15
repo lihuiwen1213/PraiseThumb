@@ -17,6 +17,7 @@ module.exports = {
     },
     output: {
         filename: 'public/scripts/[name]-[hash:5].js',
+        // publicPath: 'http://192.168.7.117:3000/',
         path: path.join(__dirname, '../build/')
     },
     module: {
@@ -70,13 +71,13 @@ module.exports = {
             inject: false,
         }),
          new HtmlWebpackPlugin({ // Also generate a test.html 
-            filename: './views/index.html',
+            filename: './views/star.html',
             template: 'src/views/star.js',
             inject: false,
             chunks: ['vendor','index','tags'],
         }),
          new HtmlWebpackPlugin({ // Also generate a test.html 
-            filename: './widget/index.html',
+            filename: './widget/star.html',
             template: 'src/widget/star.html',
             inject: false,
         }),

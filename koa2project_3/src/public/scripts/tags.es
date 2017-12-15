@@ -1,4 +1,4 @@
-import Thumb from './index.es'
+import {Thumb} from './index.es'
 const thumb = new Thumb();
 xtag.register('x-praise', {
   content: ' <div class="hand" id="hand">'+
